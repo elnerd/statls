@@ -153,8 +153,9 @@ def usage():
     print "usage: statls -w [--wordlist=<path to wordlist>]"
     print "              -f [  --format=bew...], format of generator chain"
     print "                                        b is for bruteforce"
+    print "                                        q is for lowercase bruteforce"
     print "                                        e is for extention (.tar,.zip...)"
-    print "                                        w is for wordlist"
+    print "                                        w is for wordlist entry"
     print " example formats:"
     print "   --format=bbbbbb	# this will start bruteforcing filenames up to 6 in length"
     print "   --format=we		# this will look for common filenames with extentions"
@@ -211,6 +212,8 @@ if __name__ == "__main__":
             generators.append(ChainedIterGen(parentgen, charset_default, 0, 1))
         if gentype == "e":
             generators.append(ChainedListGen(parentgen, extentions))
+        if gentype == "q":
+            generators.append(ChainedIterGen(parentgen, charset_quick, 0, 1))
     mastergen = generators[-1]
 
     # start searching for files/directories
