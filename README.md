@@ -23,4 +23,4 @@ I cant believe you found this file!
 
 ```
 
-Awesome! Right. Now you should stop serving your public_html from your home directory ;)
+Awesome! Right. Now you should stop serving your public_html from your home directory. "chmod og-rw ~" does not help you here.
